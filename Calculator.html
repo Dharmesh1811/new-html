@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body{
+            background-color: black;
+        }
+        .main{
+            background-color: blue;
+            width: 342px;
+            margin: 20px;
+            border: 2px solid white;
+            box-shadow: 0px 0px 10px white;
+        }
+        .main .content input{
+            border:none;
+        }
+        .main .content #first{
+            margin-top: 15px;
+            margin-left: 10px;
+            width: 150px;
+            height: 25px;
+            background-color: aquamarine;
+        }
+        .main .content #second{
+            margin-top: 15px;
+            margin-left: 7px;
+            width: 154px;
+            height: 25px;
+            background-color: aquamarine;
+        }
+        .main .content #result{
+            margin-top: 15px;
+            margin-left: 10px;
+            width: 320px;
+            height: 50px;
+            background-color: aquamarine;
+        }
+        .main .b1 button{
+            margin: 10px 11px;
+            width: 60px;
+            height: 40px;
+            background-color: aqua;
+        }
+        .main .b2 button{
+            margin: 10px 11px;
+            width: 60px;
+            height: 40px;
+            background-color: aqua;
+        }
+        .main .b3 button{
+            margin: 10px 11px;
+            width: 60px;
+            height: 40px;
+            background-color: aqua;
+        }
+        .main .b4 button{
+            margin: 10px 11px;
+            width: 60px;
+            height: 40px;
+            background-color: aqua;
+        }
+        .main .b5 button{
+            margin: 10px 11px;
+            width: 60px;
+            height: 40px;
+            background-color: aqua;
+        }
+        
+
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="content">
+            <input type="text" id="first">
+            <input type="text" id="second"><br>
+            <input type="text" id="result">
+        </div>      
+                <div class="b1">
+                    <button onclick="cleardisplay()">AC</button>
+                    <button onclick="del()">DEL</button>
+                    <button onclick="operator('%')">%</button>
+                    <button onclick="operator('/')">/</button>
+                </div>
+
+                <div class="b2">
+                    <button onclick="number(7)">7</button>
+                    <button onclick="number(8)">8</button>
+                    <button onclick="number(9)">9</button>
+                    <button onclick="operator('*')">*</button>
+                </div>
+
+                <div class="b3">
+                    <button onclick="number(4)">4</button>
+                    <button onclick="number(5)">5</button>
+                    <button onclick="number(6)">6</button>
+                    <button onclick="operator('-')">-</button>
+                </div>
+            
+                <div class="b4">
+                    <button onclick="number(1)">1</button>
+                    <button onclick="number(2)">2</button>
+                    <button onclick="number(3)">3</button>
+                    <button onclick="operator('+')">+</button>
+                </div>
+
+                <div class="b5">
+                    <button onclick="number('00')">00</button>
+                    <button onclick="number(0)">0</button>
+                    <button onclick="number('.')">.</button>
+                    <button onclick="operatorresult('=')">=</button>
+                </div>
+    </div>
+    
+
+    <script>
+        let firstNumber = '';
+        let secondNumber = '';
+        let operatorUsed = '';
+        let result = '';
+
+        function number(num) {
+            if (!operatorUsed) {
+                firstNumber += num;
+                document.getElementById('first').value = firstNumber;
+            } else {
+                secondNumber += num;
+                document.getElementById('second').value = secondNumber;
+            }
+        }
+
+        function operator(op) {
+            operatorUsed = op;
+            document.getElementById('first').value = firstNumber;
+            document.getElementById('second').value = '';
+            secondNumber = '';
+        }
+
+        function cleardisplay() {
+            firstNumber = '';
+            secondNumber = '';
+            operatorUsed = '';
+            result = '';
+            document.getElementById('first').value = '';
+            document.getElementById('second').value = '';
+            document.getElementById('result').value = '';
+        }
+
+        function operatorresult() {
+            if (firstNumber && secondNumber && operatorUsed) {
+                let num1 = Number(firstNumber);
+                let num2 = Number(secondNumber);
+                if (operatorUsed === '+') {
+                    result = num1 + num2;
+                } else if (operatorUsed === '-') {
+                    result = num1 - num2;
+                } else if (operatorUsed === '*') {
+                    result = num1 * num2;
+                } else if (operatorUsed === '/') {
+                    result = num1 / num2;
+                }
+                document.getElementById('result').value = result;
+                firstNumber = '';
+                secondNumber = '';
+                operatorUsed = '';
+                result = '';
+            }
+        }
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find & Replace</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: aqua;
+      }
+      
+      #text-area{
+        margin-left: 450px;
+        width: 310px;
+        height: 200px;
+        padding: 10px;
+        font-size: 14px;
+        border: 1px solid #ccc;
+      }
+      
+      #find-text, #replace-text {
+        margin-left: 450px;
+        width: 130px;
+        height: 25px;
+        padding: 5px;
+        font-size: 14px;
+        border: 1px solid #ccc;
+      }
+      
+      #replace-text {
+        margin-left: 40px;
+      }
+      
+      #find-button {
+        margin-left: 480px;
+        width: 80px;
+        height: 30px;
+        font-size: 14px;
+        background-color: #4CAF50;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      #replace-button{
+        margin-left: 100px;
+        width: 80px;
+        height: 30px;
+        font-size: 14px;
+        background-color: #4CAF50;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+
+      }
+
+      
+      #find-button:hover, #replace-button:hover {
+        background-color: #3e8e41;
+      }
+      
+      #result{
+        margin-top: 50px;
+        margin-left: 450px;
+        border: 2px solid black;
+        width: 310px;
+        height: 40px;
+        padding: 10px;
+        font-size: 14px;
+        background-color: #fff;
+      }
+      
+      #result::before {
+        content: "Result: ";
+        font-weight: bold;
+      }
+    </style>
+</head>
+<body>
+    <textarea id="text-area" rows="10" cols="50"></textarea>
+    <br><br>
+    <input type="text" id="find-text" placeholder="Find">
+    <input type="text" id="replace-text" placeholder="Replace"><br><br>
+    <button id="find-button" onclick="find()">Find</button>
+    <button id="replace-button" onclick="replace()">Replace</button>
+    <br>
+    <div id="result"></div>
+    
+    <script>
+        let textArea = document.getElementById("text-area");
+        let findInput = document.getElementById("find-text");
+        let replaceInput = document.getElementById("replace-text");
+        let findButton = document.getElementById("find-button");
+        let replaceButton = document.getElementById("replace-button");
+        let resultDiv = document.getElementById("result");
+
+        function find() {
+            let text = textArea.value;
+            let findText = " "+findInput.value+" ";
+            let count = (text.split(findText).length)-1;
+        
+            resultDiv.textContent = `"${findText}" found ${count} times.`;
+        }
+
+        function replace() {
+            let text = textArea.value;
+            let findText = " "+findInput.value+" ";
+            let replaceText = " "+replaceInput.value+" ";
+            let newText = text.split(findText).join(replaceText);
+
+            textArea.value = newText;
+            resultDiv.textContent = `"${findText}" replaced with "${replaceText}".`;
+        }
+    </script>
+</body>
+</html>

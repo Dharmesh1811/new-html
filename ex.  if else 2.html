@@ -1,0 +1,124 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <p id="total">Total : </p>
+    <p id="per">Percentage : </p>
+    <p id="result"> Result</p>
+    <p id="grade">Grade : </p>
+
+    <script>
+        let math, ss, sci, total, avg, grade;
+
+        math = 99;
+        ss = 99;
+        sci = 34;
+        total = math + ss + sci;
+        avg = total / 3;
+
+
+        // pass- fail
+
+        if (math >= 35 && sci >= 35 && ss >= 35) {
+            document.getElementById('result').innerHTML = 'Result : Pass';
+            //>90 A; 90-75 B; 74-50 C; 49-35 D; <35 -
+
+            if (avg >= 90)
+                grade = 'A';
+            else if (avg >= 75)
+                grade = 'B';
+            else if (avg >= 50)
+                grade = 'C';
+            else if (avg >= 35)
+                grade = 'D';
+            else
+                grade = '-';
+
+        } else {
+            document.getElementById('result').innerHTML = 'Result : Fail';
+            grade = '-';
+        }
+
+
+
+
+        document.getElementById('total').innerHTML = 'Total :' + total;
+        document.getElementById('per').innerHTML = 'Percentage :' + avg;
+        document.getElementById('grade').innerHTML = 'Grade :' + grade;
+    </script>
+
+
+
+</body>
+
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <input type="text" id="num">
+    <br>
+    <button onclick="switchfun()">Submit</button>
+
+    <script>
+        function switchfun() {
+            let num = +document.getElementById('num').value;
+
+            switch (num) {
+                case 0:
+                    document.write('Zero');
+                    break;
+                case 1:
+                    document.write('One');
+                    break;
+                case 2:
+                    document.write('Two');
+                    break;
+                case 3:
+                    document.write('Three');
+                    break;
+                case 4: {
+                    document.write('Four');
+                    break;
+                }
+                case 5:
+                    document.write('Five');
+                    break;
+                case 6:
+                    document.write('Six');
+                    break;
+                case 7:
+                    document.write('Seven');
+                    break;
+                case 8:
+                    document.write('Eight');
+                    break;
+                case 9:
+                    document.write('Nine');
+                    break;
+                default:
+                    document.write('Please Enter 0 to 9');
+            }
+        }
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <pre id="p3"></pre>
+    <pre id="p4"></pre>
+    <pre id="p5"></pre>
+    <pre id="p6"></pre>
+
+
+    <script>
+        //  1
+
+      let pattern = "";
+      const rows = 5; // Number of rows for the pyramid
+
+      for (let i = 1; i <= rows; i++) {
+        // Add spaces for right alignment
+        for (let j = rows; j > i; j--) {
+          pattern += " ";
+        }
+        // Add numbers
+        for (let k = 1; k <= i; k++) {
+          pattern += k;
+        }
+        pattern += "\n"; // Move to the next line after each row
+      }
+      document.getElementById("p3").innerHTML = pattern;
+
+
+      //    2
+
+
+      let patterns = "";
+      const row = 5;
+
+      for (let i = 1; i <= row; i++) {
+        for (let j = 1; j <= i; j++) {
+          patterns += j % 2 === 1 ? "1" : "0";
+        }
+        patterns += "\n";
+      }
+      document.getElementById("p4").innerHTML = patterns;
+
+
+      //    3
+
+
+     let u, v, r;
+     let patternoutput = "";
+     let l;
+      for (u = 1; u <=5; u++){
+        for (v = 1; v <=5-u; v++){
+          patternoutput += "  ";
+        }
+        for(r = 1; r <=u; r++){
+          patternoutput += r +" ";
+        }
+        for(l = u - 1; l >= 1; l--){
+          patternoutput += l +" ";
+        }
+        patternoutput += "<br>";
+      }
+      document.getElementById("p6").innerHTML = patternoutput;
+
+
+      //    4
+
+
+      let i, j;
+      let k = "";
+
+      for (i = 1; i <= 5; i++) {
+        for (j = 1; j <= i; j++) {
+          document.write(j + "");
+        }
+        document.write("<br>");
+      }
+
+      //   5
+
+      for (i = 5; i >= 1; i--) {
+        for (j = 5; j >= i; j--) {
+          document.write(" &nbsp; ");
+        }
+        for (k = 1; k <= 2 * i - 1; k++) {
+          document.write("*");
+        }
+        document.write("<br>");
+      }
+      
+      
+      //   6
+
+        let character ="ANGEL";
+
+        for(let i = 0; i < character.length; i++){
+          for(let j = 0; j<=i; j++){
+            document.write(character[j])
+        }
+        document.write("<br>");
+      }
+
+
+      
+    
+    </script>
+  </body>
+</html>

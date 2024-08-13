@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arrey method</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+    <input type="text" id="p1" placeholder="Please Enter Value">
+    <button onclick="pushData()">Add</button>
+
+    <p id="text"></p>
+
+
+    <script>
+
+      let first = [" "];
+
+      function pushData()
+      {
+        let inputText = document.getElementById('p1').value;
+
+        first.push(inputText);
+
+        let x1 = "";
+
+        for(i = 0; i < first.length; i++)
+        {
+          x1 = x1 + first[i] + "<br/>";
+        }
+        inputText.value = "";
+
+        document.getElementById('text').innerHTML = x1;
+      }
+
+    </script>
+    
+</body>
+</html>

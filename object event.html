@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object event</title>
+    <style>
+        body{
+            background-color: white;
+            color: black;
+        }
+        p{
+            cursor: pointer;
+            font-size: 20px;
+            width: 450px;
+            text-align: center;
+        }
+        #demo{
+            width: 100px;
+            height: 50px;
+            margin-top: -400px;
+            margin-left: 700px;
+            border: 2px solid black;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p id="p1">background color blue - foreground color green</p>
+        <p id="p2">background color gray - foreground color blue</p>
+        <p id="p3">background color blue - foreground color red</p>
+        <p id="p4">background color Orange - foreground color green</p>
+        <p id="p5">background color yellow - foreground color green</p>
+        <p id="p6">background color blue - foreground color aqua</p>
+        <p id="p7">background color aqua - foreground color green</p>
+        <p id="p8">background color green - foreground color aqua</p>
+        <p id="p9">background color purple - foreground color green</p>
+        <p id="p10">background color blue - foreground color purple</p>
+
+        <p id="demo"></p>
+
+    </div>
+
+    <script>
+
+        document.getElementById("p1").onmouseover = function() {color1()};
+        document.getElementById("p1").onmouseout = function() {change1()};
+        let text1 = "background color blue - foreground color green"
+        let length1 = text1.length;
+
+        
+        function color1(){
+           document.body.style.backgroundColor = "blue";
+           document.body.style.color = "green";
+            document.getElementById("demo").innerHTML = length1;
+        
+        }
+        function change1(){
+            document.body.style.backgroundColor = "white";
+           document.body.style.color = "black";
+           document.getElementById("demo").innerHTML = 0;
+            
+        }
+
+
+        document.getElementById("p2").onmouseover = function() {color2()};
+        document.getElementById("p2").onmouseout = function() {change2()};
+        let text2 = "background color gray - foreground color blue"
+        let length2 = text2.length;
+        
+        function color2(){
+            document.body.style.backgroundColor = "gray";
+           document.body.style.color = "blue";
+            document.getElementById("demo").innerHTML = length2;
+
+        }
+        function change2(){
+            document.body.style.backgroundColor = "white";
+           document.body.style.color = "black";
+           document.getElementById("demo").innerHTML = 0;
+        }
+
+        document.getElementById("p3").onmouseover = function() {color3()};
+        document.getElementById("p3").onmouseout = function() {change3()};
+        let text3 = "background color blue - foreground color red"
+        let length3 = text3.length;
+        
+        
+        function color3(){
+            document.body.style.backgroundColor = "blue";
+           document.body.style.color = "red";
+            document.getElementById("demo").innerHTML = length3;
+        }
+        function change3(){
+            document.body.style.backgroundColor = "white";
+           document.body.style.color = "black";
+           document.getElementById("demo").innerHTML = 0;
+        }
+
+        document.getElementById("p4").onmouseover = function() {color4()};
+        document.getElementById("p4").onmouseout = function() {change4()};
+        let text4 = "background color Orange - foreground color green"
+        let length4 = text4.length;
+        
+        
+        function color4(){
+            document.body.style.backgroundColor = "orange";
+           document.body.style.color = "green";
+            document.getElementById("demo").innerHTML = length4;
+        }
+        function change4(){
+            document.body.style.backgroundColor = "white";
+            document.body.style.color = "black";
+            document.getElementById("demo").innerHTML = 0;
+        }
+
+        document.getElementById("p5").onmouseover = function() {color5()};
+        document.getElementById("p5").onmouseout = function() {change5()};
+        let text5 = "background color yellow - foreground color green"
+        let length5 = text5.length;
+        
+        
+        function color5(){
+            document.body.style.backgroundColor = "yellow";
+           document.body.style.color = "green";
+            document.getElementById("demo").innerHTML = length5;
+        }
+        function change5(){
+            document.body.style.backgroundColor = "white";
+           document.body.style.color = "black";
+           document.getElementById("demo").innerHTML = 0;
+        }
+
+        document.getElementById("p6").onmouseover = function() {color6()};
+        document.getElementById("p6").onmouseout = function() {change6()};
+        let text6 = "background color blue - foreground color aqua"
+        let length6 = text6.length;
+        
+        
+        function color6(){
+            document.body.style.backgroundColor = "blue";
+           document.body.style.color = "aqua";
+            document.getElementById("demo").innerHTML = length6;
+        }
+        function change6(){
+            document.body.style.backgroundColor = "white";
+           document.body.style.color = "black";
+           document.getElementById("demo").innerHTML = 0;
+        }
+
+        document.getElementById("p7").onmouseover = function() {color7()};
+        document.getElementById("p7").onmouseout = function() {change7()};
+        let text7 = "background color aqua - foreground color green"
+        let length7 = text7.length;
+        
+        
+        function color7(){
+            document.body.style.backgroundColor = "aqua";
+           document.body.style.color = "green";
+            document.getElementById("demo").innerHTML = length7;
+        }
+        function change7(){
+            document.body.style.backgroundColor = "white";
+           document.body.style.color = "black";
+           document.getElementById("demo").innerHTML = 0;
+        }
+
+        document.getElementById("p8").onmouseover = function() {color8()};
+        document.getElementById("p8").onmouseout = function() {change8()};
+        let text8 = "background color green - foreground color aqua"
+        let length8 = text8.length;
+        
+        
+        function color8(){
+            document.body.style.backgroundColor = "green";
+           document.body.style.color = "aqua";
+            document.getElementById("demo").innerHTML = length8;
+        }
+        function change8(){
+            document.body.style.backgroundColor = "white";
+           document.body.style.color = "black";
+           document.getElementById("demo").innerHTML = 0;
+           
+        }
+
+        document.getElementById("p9").onmouseover = function() {color9()};
+        document.getElementById("p9").onmouseout = function() {change9()};
+        let text9 = "background color purple - foreground color green"
+        let length9 = text9.length;
+        
+        
+        function color9(){
+            document.body.style.backgroundColor = "purple";
+           document.body.style.color = "green";
+            document.getElementById("demo").innerHTML = length9;
+        }
+        function change9(){
+            document.body.style.backgroundColor = "white";
+           document.body.style.color = "black";
+           document.getElementById("demo").innerHTML = 0;
+            
+        }
+
+        document.getElementById("p10").onmouseover = function() {color10()};
+        document.getElementById("p10").onmouseout = function() {change10()};
+        let text10 = "background color blue - foreground color purple"
+        let length10 = text10.length;
+        
+        
+        function color10(){
+            document.body.style.backgroundColor = "blue";
+           document.body.style.color = "purple";
+            document.getElementById("demo").innerHTML = length10;
+        }
+        function change10(){
+            document.body.style.backgroundColor = "white";
+           document.body.style.color = "black";
+           document.getElementById("demo").innerHTML = 0;
+        }
+    </script>
+</body>
+</html>

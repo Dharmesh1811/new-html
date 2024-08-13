@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p id="max">Biggest value is :</p>
+
+    <script>
+      let a = 60,
+        b = 55,
+        c = 5;
+      let max;
+
+      if (a > b) {
+        if (a > c) {
+          max = a;w
+        } else {
+          max = c;
+        }
+      }
+      if (a > c) {
+        max = a;
+      }
+      if (b > c) {
+        max = b;
+      }
+      if (c > b) {
+        max = c;
+      }
+      if (b > a) {
+        if (b > c) {
+          max = b;
+        } else {
+          max = c;
+        }
+      }
+      if(c > a){
+        if(c > b){
+          max = c;
+        }
+        else{
+          max = b;
+        }
+      }
+      if(a == b){
+        if (a == c){
+          max = "all equal :" + a;
+        }
+        else{
+          max = "a and b are equal and value of a is:" + a;
+        }
+      }
+      document.getElementById("max").innerHTM = "Biggest value is : " + max;
+    </script>
+  </body>
+</html>

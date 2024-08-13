@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for array methods</title>
+    <script src="https://kit.fontawesome.com/3ceee87399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <input type="text" id="Input" placeholder="Enter a value: ">
+    <button onclick="addTask()"><i class="fa-solid fa-plus"></i></button>
+
+    <div id="result"></div>
+
+    <script>        
+        const arr = [];
+
+        function addTask() {
+            const Input = document.getElementById('Input');
+            const txt = Input.value.trim();
+
+            if (txt !="") {
+                arr.push(txt);
+                Input.value = '';
+                update();
+            }
+            else{
+                alert("You can't enter null value");
+            }
+        }
+
+        function remove(index) {
+            arr.splice(index, 1);
+            update();
+        }
+
+        function update() {
+            const result = document.getElementById('result');
+            result.innerHTML = '';
+            
+            for (let i = 0; i < arr.length; i++) {
+                const trash_ic = "  <button onclick='remove("+ i +")'><i class='fa-solid fa-trash'></i></button>";
+                const para="<p>"+arr[i]+trash_ic+"</p>";
+                result.innerHTML += para;
+            }
+        }
+    </script>
+</body>
+</html>

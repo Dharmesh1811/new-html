@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+    <style>
+        table{
+            width: 80%;
+        }
+        table.list{
+            text-align: center;
+            width: 100%;
+        }
+        td{
+            border: 1px solid rgb(204,200,200);
+            text-align: left;
+            padding: 8px 15px;
+        }
+        input[type="text"],input[type="number"]{
+            width:91%;
+            padding:12px 20px;
+            margin:8px 0;
+            display: inline-block;
+            border: 1px solid rgb(165,161,161);
+            border-radius: 4px;
+        }
+        input[type="submit"],button{
+            background: #eee;
+            padding:6px 12px;
+            margin:15px 0 10px;
+            display: inline-block;
+            border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+            cursor: pointer;
+            outline: none;
+        }
+        
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>
+                <form autocomplete="on">
+                    <div>
+                        <label for="productname">Product name</label>
+                        <input type="text" name="productname" id="name">
+                    </div>
+                    <div>
+                        <label for="product img">Product image</label><br><br>
+                        <input type="file" name="productimg" id="img"><br><br>
+                    </div>
+                    <div>
+                        <label for="mrp">Price</label>
+                        <input type="text" name="productprice" id="price">
+                    </div>
+                    <div>
+                        <label for="dis">DIS</label><br>
+                        <input type="text" name="product discription" id="dis">
+                    </div>
+                    <div>
+                        <input type="submit" value="ADD PRODUCT" onclick="Submit()">
+                    </div>
+                </form>
+                <button onclick="view()">VIEW PRODUCTS</button>
+
+                <table class="list" id="List" style="display: none;">
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Image</th>
+                        <th>Price</th>
+                        <th>Dis</th>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <script>
+        let products = [];
+        function Submit() {
+            event.preventDefault();
+            var formData = data();
+            add(formData);
+            products.push(formData);
+        }
+        function data() {
+            var formData = {};
+            formData["name"] = document.getElementById("name").value;
+            formData["img"] = document.getElementById("img").value;
+            formData["price"] = document.getElementById("price").value;
+            formData["dis"] = document.getElementById("dis").value;
+            return formData;
+        }
+        function add(data) {
+            var table = document.getElementById("List");
+            var row = table.insertRow(-1);
+            
+            let img1 =data.img;
+            let img2 = img1.slice(12);
+
+            row.innerHTML = `
+                <td>${data.name}</td>
+                <td><img src="${img2}" width="50px" hight="50px";> ${img2}</td>
+                <td>${data.price}</td>
+                <td>${data.dis}</td>
+            `;
+            let list = document.getElementById("List");
+            list.style.display="none";
+        }
+        function view() {
+            let list = document.getElementById("List");
+            list.style.display="block";
+        }
+    </script>
+</body>
+</html>

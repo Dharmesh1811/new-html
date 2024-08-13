@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table</title>
+    <style>
+      body{
+          background-color: white;
+          font-family: Arial, sans-serif;
+      }
+      table{
+          margin-left: 40px;
+          border-collapse: collapse;
+      }
+      .main{
+        flex-direction: row;
+        display: flex;
+        width: 300px;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        background-color: rgb(212, 175, 247);
+        display :inline-block;
+        margin-left: 400px;
+        border-radius: 15px;
+      }
+      input{
+          height: 5px;
+          border: 2px solid darkblue;
+          padding: 10px;
+          /* text-align: center;
+          justify-content: center;
+          align-items: center; */
+          display: flex;
+      }
+      button{
+          width: 80px;
+          height: 25px;
+          background-color: gray;
+          color: white;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+      }
+      button:active{
+          width: 80px;
+          height: 25px;
+          background-color: lightgray;
+      }
+      .content{
+        margin-left: -30px;
+      }
+      .content #table2{
+          margin-top: 50px;
+          border: 2px solid black;
+          background-color: lightslategray;
+          text-align: center;
+      }
+     .content #table2 th{
+          width: 183px;
+          padding: 10px;
+          background-color: #f0f0f0;
+          border-bottom: 2px solid black;
+      }
+     .content #table2 td{
+          padding: 10px;
+          border-bottom: 1px solid #ddd;
+      }
+      .content #table2 th #sn{
+        width: 20px;
+        height: 20px;
+        margin-left: 160px;
+        margin-top: -20px;
+      }
+      .content #table2 th #sd{
+        width: 20px;
+        height: 20px;
+        margin-left: 155px;
+        margin-top: -20px;
+      }
+      .content #table2 th #cn{
+        width: 20px;
+        height: 20px;
+        margin-left: 155px;
+        margin-top: -20px;
+      }
+      .content #table2 th #jd{
+        width: 20px;
+        height: 20px;
+        margin-left: 140px;
+        margin-top: -20px;
+      }
+      .content #table2 th #feescheck{
+        width: 20px;
+        height: 20px;
+        margin-left: 110px;
+        margin-top: -20px;
+      }
+      .content #table2 th #projectcheck{
+        width: 20px;
+        height: 20px;
+        margin-left: 130px;
+        margin-top: -20px;
+      }
+  </style>
+</head>
+<body>
+  <div class="main">
+    <form action="" id="myForm">
+
+          <label>STUDENT NAME :</label>
+          <input type="text" id="sname" required><br><br>
+  
+          <label>STUDENT DOB :</label>
+          <input type="text" id="sdob" required><br><br>
+  
+          <label>COURSE NAME :</label>
+          <input type="text" id="cname" required><br><br>
+  
+          <label>JOIN DATE :</label>
+          <input type="text" id="jdate" required><br><br>
+
+          <label>FEES :</label>
+          <input type="text" id="fees" required><br><br>
+  
+          <label>PROJECT :</label>
+          <input type="text" id="project" required><br><br>
+  
+        <button type="button" onclick="add()">ADD</button>
+      </form>
+    </div>
+  
+      <div class="content">
+        <table id="table2">
+          <thead>
+            <tr>
+              <th>STUDENT NAME<input type="checkbox" id="sn" onclick="cancelRow()" /></th>
+              <th>STUDENT DOB<input type="checkbox" id="sd" onclick="cancelRow()" /></th>
+              <th>COURSE NAME<input type="checkbox" id="cn" onclick="cancelRow()" /></th>
+              <th>JOIN DATE<input type="checkbox" id="jd" onclick="cancelRow()" /></th>
+              <th>FEES<input type="checkbox" id="feescheck" onclick="cancelRow()" /></th>
+              <th>PROJECT<input type="checkbox" id="projectcheck" onclick="cancelRow()" /></th>
+            </tr>
+          </thead>
+          <tbody id="tableBody"></tbody>
+        </table>
+      </div>
+    
+    <script>
+        function add() {
+          // Get input values
+          let studentdob = document.getElementById("sdob").value;
+          let studentName = document.getElementById("sname").value;
+          let coursename = document.getElementById("cname").value;
+          let joindate = document.getElementById("jdate").value;
+          let fees = document.getElementById("fees").value;
+          let project = document.getElementById("project").value;
+  
+          // Create a new row
+          let table = document
+            .getElementById("table2")
+            .getElementsByTagName("tbody")[0];
+          let newRow = table.insertRow(table.rows.length);
+  
+  
+  
+          // Insert cells
+          let cell1 = newRow.insertCell(0);
+          let cell2 = newRow.insertCell(1);
+          let cell3 = newRow.insertCell(2);
+          let cell4 = newRow.insertCell(3);
+          let cell5 = newRow.insertCell(4);
+          let cell6 = newRow.insertCell(5);
+  
+          
+  
+          // Add text to cells
+          cell1.innerHTML = studentName;
+          cell2.innerHTML = studentdob;
+          cell3.innerHTML = coursename;
+          cell4.innerHTML = joindate;
+          cell5.innerHTML = fees;
+          cell6.innerHTML = project;
+  
+          // input fild ma add kare
+          document.getElementById("sname").value = "";
+          document.getElementById("sdob").value = "";
+          document.getElementById("cname").value = "";
+          document.getElementById("jdate").value = "";
+          document.getElementById("fees").value = "";
+          document.getElementById("project").value = "";
+  
+         
+        }
+      
+        function cancelRow() {
+          let table = document.getElementById("table2").getElementsByTagName("tbody")[0];
+          let rows = Array.from(table.rows); // arreay ni ander convert kare
+          let selectedColumns = [];
+  
+          // selected columns
+          if (document.getElementById('sn').checked) selectedColumns.push(0);
+          if (document.getElementById('sd').checked) selectedColumns.push(1);
+          if (document.getElementById('cn').checked) selectedColumns.push(2);
+          if (document.getElementById('jd').checked) selectedColumns.push(3);
+          if (document.getElementById('feescheck').checked) selectedColumns.push(4);
+          if (document.getElementById('projectcheck').checked) selectedColumns.push(5);
+  
+          if (selectedColumns.length === 0) {
+            rows.forEach(row => row.style.display = 'table-row');
+            return;
+          }
+  
+          const seen = {};
+  
+          rows.forEach(row => {
+            // selected columns ma key generate kare value na aadhare
+            let key = selectedColumns.map(colIndex => row.cells[colIndex].textContent.trim()).join('|');
+  
+            if (seen[key]) {
+              row.style.display = 'none'; // duplicate row ne hide kare 
+            } else {
+              seen[key] = true;
+              row.style.display = 'table-row';
+            }
+          });
+        }
+      </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTP Generate</title>
+    <style>
+        #add{
+            margin-top: 20px;
+        }
+        h1{
+            text-align: center;
+        }
+        #b1{
+            margin-left: 560px;
+            margin-top: 20px;
+        }
+        #b2{
+            margin-left: 580px;
+            margin-top: 20px;
+        }
+        #otp{
+            margin-left: 500px;
+        }
+        #add{
+            margin-left: 530px;
+        }
+        #p1{
+            margin-left: 540px;
+        }
+    </style>
+</head>
+<body>
+    <h1>OTP Generator</h1>
+    <button onclick="generateOTP()" id="b1">Generate OTP</button>
+    <p id="otp"></p>
+
+    <input type="number" id="add">
+    <button onclick="add()" id="b2">Submit</button>
+    <p id="p1"></p>
+
+    <script>
+        function generateOTP() {
+            
+            var otp = Math.floor(1000 + Math.random() * 9000);
+            document.getElementById("otp").innerHTML = otp;
+        }
+        function add() {
+            var otp = document.getElementById("otp").innerHTML;
+            var add = document.getElementById("add").value;
+            if (otp == add){
+                document.getElementById("p1").innerHTML = "your OTP is successfuly";
+
+            }
+            else {
+                if(otp !== add){
+                    document.getElementById("p1").innerHTML  = "your OTP is not successfuly";
+                }
+            }
+        }
+    </script>
+</body>
+</html>

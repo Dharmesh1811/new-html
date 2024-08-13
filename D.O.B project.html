@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Calculator</title>
+    <style>
+        /* Add some basic styles to make the page look nicer */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        input[type="date"] {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+        }
+        
+        button[type="button"] {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        button[type="button"]:hover {
+            background-color: #3e8e41;
+        }
+        
+        #result {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <label for="dob">Date of Birth:</label>
+    <input type="date" id="dob" name="dob">
+    <button id="click" onclick="calculateAge()">Calculate Age</button>
+    <p id="result"></p>
+
+    <script>
+        function calculateAge() {
+            var dob = document.getElementById("dob").valueAsDate;
+            var birthYear = dob.getFullYear();
+            var birthMonth = dob.getMonth() + 1;
+            var birthDay = dob.getDate();
+
+            var today = new Date();
+            var currentYear = today.getFullYear();
+            var currentMonth = today.getMonth() + 1;
+            var currentDay = today.getDate();
+
+            var ageYears = currentYear - birthYear;
+            var ageMonths = currentMonth - birthMonth;
+            var ageDays = currentDay - birthDay;
+
+            if (ageDays < 0) {
+                ageMonths--;
+                ageDays += daysInMonth(birthMonth, birthYear);  
+            }
+            if (ageMonths < 0) {
+                ageYears--;
+                ageMonths += 12;
+            }
+
+            document.getElementById("result").innerHTML = "You are " + ageYears + " years, " + ageMonths + " months, and " + ageDays + " days old.";
+        }
+
+        function daysInMonth(month, year) {
+            return new Date(year, month, 0).getDate();
+        }
+    </script>
+</body>
+</html>

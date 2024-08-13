@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="">Loan Start date :</label>
+    <input type="date" id="lsd"><br><br>
+
+    <label for="">Loan amt :</label>
+    <input type="number" id="la"><br><br>
+
+    <label for="">Rate of interest :</label>
+    <input type="number" id="ri"><br><br>
+
+    <label for="">Days :</label>
+    <input type="number" id="day"><br><br>
+
+    <button onclick="calculate()">Calculate</button>
+
+    <p id="interest">Interest :</p>
+    <p id="total">Total amt :</p>
+    <p id="dcl">Date to complate loan :</p>
+
+    <script>
+            function calculate() {
+                let StartDate = document.getElementById("lsd").value;
+                let loanamt = Number(document.getElementById("la").value);
+                let rateOfInterest = Number(document.getElementById("ri").value) / 100;
+                let days = Number(document.getElementById("day").value);
+
+                let interest = (loanamt * rateOfInterest * days) / 30;
+                let totalamt = loanamt + interest;  
+                let completionDate = new Date(StartDate);
+                completionDate.setDate(completionDate.getDate() + days);
+
+                document.getElementById("interest").innerHTML = `Interest : ${interest.toFixed(2)}`;
+                document.getElementById("total").innerHTML = `Total amt : ${totalamt.toFixed(0)}`;
+                document.getElementById("dcl").innerHTML = `Date to complete loan : ${completionDate.toLocaleDateString()}`;
+            }
+    </script>
+
+    
+</body>
+</html>
