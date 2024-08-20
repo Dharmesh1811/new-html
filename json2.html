@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JSON Data Table</title>
+  <style>
+    /* Add some basic styling to the table */
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+    }
+    th {
+      background-color: #f0f0f0;
+    }
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+    
+  </style>
+</head>
+<body>
+    <table id="data-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Price</th>
+          <th>Tags</th>
+          <th>Brand</th>
+        </tr>
+      </thead>
+      <tbody id="data-body">
+      </tbody>
+    </table>
+    <script>
+        const apiUrl = 'https://dummyjson.com/products/search?q=phone';
+        const dataBody = document.getElementById('data-body');
+        fetch(apiUrl)
+          .then(response => response.json())
+          .then(data => {
+            const products = data.products;
+
+            let tableHtml = '';
+            products.forEach(product => {
+                tableHtml += `
+                  <tr>
+                    <td>${product.id}</td>
+                    <td>${product.title}</td>
+                    <td>${product.description}</td>
+                    <td>${product.price}</td>
+                    <td>${product.tags.join(', ')}</td>
+                    <td>${product.brand}</td>
+                  </tr>
+                `;
+            });
+
+            dataBody.innerHTML = tableHtml;
+          })
+    </script>
+</body>
+</html>

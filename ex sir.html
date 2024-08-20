@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JSON Data Table</title>
+</head>
+<body>
+    <table id="data-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Price</th>
+          <th>Tags</th>
+          <th>Brand</th>
+          <th>Category</th>
+          <th>Rating</th>
+          <th>Stock</th>
+          <th>Availability Status</th>
+          <th>Return Policy</th>
+        </tr>
+      </thead>
+      <tbody id="data-body">
+      </tbody>
+    </table>
+    <script>
+        const apiUrl = 'https://dummyjson.com/products/search?q=phone';
+        const dataBody = document.getElementById('data-body');
+        fetch(apiUrl)
+          .then(response => response.json())
+          .then(data => {
+            const products = data.products;
+
+            products.map(product => {
+                const row = document.createElement('tr');
+                
+                const cells = [
+                    product.id,
+                    product.title,
+                    product.description,
+                    product.price,
+                    product.tags.join(', '),
+                    product.brand,
+                    product.category,
+                    product.rating,
+                    product.stock,
+                    product.availabilityStatus, 
+                    product.returnPolicy
+                ];
+                
+                cells.forEach(cellText => {
+                    const cell = document.createElement('td');
+                    cell.textContent = cellText;
+                    row.appendChild(cell);
+                });
+                
+                dataBody.appendChild(row);
+            });
+          })
+    </script>
+</body>
+</html>
